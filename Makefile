@@ -18,8 +18,7 @@ L_SRCS = $(addprefix $(LIBFT_DIR)/, ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.
 		ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
 		ft_putadd.c ft_putunbr.c ft_puthexnbr.c ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c \
 		ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_dlstnew.c ft_dlstadd_back.c ft_dlstlast.c\
-		ft_lstmap.c ft_contains_digit.c ft_dlstadd_front.c ft_reverse_tab.c ft_printarr.c get_next_line.c \
-		get_next_line_utils.c )
+		ft_lstmap.c ft_contains_digit.c ft_dlstadd_front.c ft_reverse_tab.c ft_printarr.c )
 		
 L_OBJS =  $(L_SRCS:.c=.o)
 
@@ -37,7 +36,7 @@ OBJ = $(SRC:.c=.o)
 all : $(NAME)
 
 $(NAME): $(OBJ) $(LIBFT) $(PRINTF)
-	$(CC) $(OBJ) -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
+	$(CC) $(OBJ) -L$(LIBFT_DIR) -lft -L$(PRINTF_DIR) -lftprintf -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
 
 %.o: %.c
 	$(CC) -I/usr/include -Imlx_linux -O3 -c $< -o $@
