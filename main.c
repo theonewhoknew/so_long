@@ -6,7 +6,7 @@
 /*   By: dtome-pe <dtome-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/10 19:36:44 by abrabant          #+#    #+#             */
-/*   Updated: 2023/06/02 12:55:34 by dtome-pe         ###   ########.fr       */
+/*   Updated: 2023/06/02 13:42:44 by dtome-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <fcntl.h>
 #include <stdio.h>
 #include <string.h>
+#include <unistd.h>
 
 void get_col(t_map *map, int fd)
 {
@@ -23,6 +24,22 @@ void get_col(t_map *map, int fd)
 
 	line = get_next_line(fd);
 	map->col = ft_strlen(line) - 1;
+	close(fd);
+}
+
+void get_row(t_map *map, int fd)
+{
+	int row;
+	char *line;
+
+	row = 0;
+	line = get_next_line(fd);
+	while (line != NULL)
+	{
+		row++;
+		line = get_next_line(fd);
+	}
+	map->row = row - 1;
 }
 
 int check_extension(char *path)
@@ -44,6 +61,10 @@ void fill_struct(t_map *map, char *path)
 
 	fd = open(path, O_RDONLY);
 	get_col(map, fd);
+	fd = open(path, O_RDONLY);
+	get_row(map, fd);
+	ft_printf("number of col is %d\n", map->col);
+	ft_printf("number of rows is %d\n", map->row);
 }
 
 void initialize_struct(t_map *map)
