@@ -6,7 +6,7 @@
 /*   By: dtome-pe <dtome-pe@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/10 19:36:44 by abrabant          #+#    #+#             */
-/*   Updated: 2023/06/02 13:42:44 by dtome-pe         ###   ########.fr       */
+/*   Updated: 2023/06/02 13:46:12 by dtome-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ void fill_struct(t_map *map, char *path)
 	get_row(map, fd);
 	ft_printf("number of col is %d\n", map->col);
 	ft_printf("number of rows is %d\n", map->row);
+
 }
 
 void initialize_struct(t_map *map)
@@ -88,5 +89,4 @@ int	main(int argc, char **argv)
 	}
 	initialize_struct(&map);
 	fill_struct(&map, argv[1]);
-	
 }
