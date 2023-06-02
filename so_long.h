@@ -2,8 +2,6 @@
 # define SO_LONG_H
 
 # include "libft/libft.h"
-# include "printf_nolib/ft_printf.h"
-# include "mlx_linux/mlx.h"
 # define WINDOW_HEIGHT 600
 # define WINDOW_WIDTH 400
 # define MLX_ERROR 1
@@ -34,11 +32,11 @@ typedef struct s_data
 
 typedef struct s_map
 {
-	int col_len;
-	int row_len;
+	int col;
+	int row;
 	int	exit;
-	int collectable;
-	int initial_position;
+	int coins;
+	int initial;
 }				t_map;
 
 #endif
