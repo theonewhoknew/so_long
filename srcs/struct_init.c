@@ -2,7 +2,7 @@
 #include <fcntl.h>
 #include <unistd.h>
 
-void fill_struct(t_map *map, char *path)
+void fill_struct(t_game *map, char *path)
 {
 	bounce_map(map, path);
 	get_row_col(map);
@@ -11,7 +11,7 @@ void fill_struct(t_map *map, char *path)
 	get_position(map);
 }
 
-void initialize_struct(t_map *map)
+void initialize_struct(t_game *map)
 {	
 	map->col = 0;
 	map->row = 0;

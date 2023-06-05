@@ -1,7 +1,7 @@
 #include "so_long.h"
 #include <stdlib.h>
 
-void visited_init(t_map *map)
+void visited_init(t_game *map)
 {	
 	int y;
 	int x;
@@ -30,7 +30,7 @@ void visited_init(t_map *map)
 	}
 }
 
-int is_valid_move(t_map *path_map, int row, int col) 
+int is_valid_move(t_game *path_map, int row, int col) 
 {	
 	if (row < 0 || row >= path_map->row || col < 0 || col >= path_map->col)
         return (ERROR);
@@ -40,7 +40,7 @@ int is_valid_move(t_map *path_map, int row, int col)
    		return (SUCCESS);
 }
 
-void dfs_coins(t_map *map, int row, int col)
+void dfs_coins(t_game *map, int row, int col)
 {	
 	if (map->path_coins == 0)
 		return ;
@@ -59,7 +59,7 @@ void dfs_coins(t_map *map, int row, int col)
 		dfs_coins(map, row, col - 1); 	  
 }
 
-void dfs_exit(t_map *map, int row, int col)
+void dfs_exit(t_game *map, int row, int col)
 {	
 	if (map->path_exit == SUCCESS)
 		return ;
@@ -78,7 +78,7 @@ void dfs_exit(t_map *map, int row, int col)
 		dfs_exit(map, row, col - 1); 
 }	 
 
-int check_path(t_map *map)
+int check_path(t_game *map)
 {	
 	get_pos_coord(map);
 	map->visited = NULL;

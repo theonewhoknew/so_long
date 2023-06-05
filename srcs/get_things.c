@@ -1,7 +1,7 @@
 #include "so_long.h"
 #include "libft/libft.h"
 
-void get_row_col(t_map *map)
+void get_row_col(t_game *map)
 {
 	int row;
 
@@ -12,7 +12,7 @@ void get_row_col(t_map *map)
 	map->col = ft_strlen(map->map[0]);
 }
 
-void get_coins(t_map *map)
+void get_coins(t_game *map)
 {
 	int i;
 	int j;
@@ -32,7 +32,7 @@ void get_coins(t_map *map)
 	}
 }
 
-void get_exit(t_map *map)
+void get_exit(t_game *map)
 {
 	int i;
 	int j;
@@ -52,7 +52,7 @@ void get_exit(t_map *map)
 	}
 }
 
-void get_position(t_map *map)
+void get_position(t_game *map)
 {
 	int i;
 	int j;
@@ -72,7 +72,7 @@ void get_position(t_map *map)
 	}
 }
 
-void get_pos_coord(t_map *map)
+void get_pos_coord(t_game *map)
 {	
 	int x;
 	int y;

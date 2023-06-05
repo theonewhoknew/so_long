@@ -1,6 +1,6 @@
 #include "so_long.h"
 
-int check_first_bottom(t_map *map)
+int check_first_bottom(t_game *map)
 {
 	int i;
 
@@ -21,7 +21,7 @@ int check_first_bottom(t_map *map)
 	return (SUCCESS);
 }
 
-int check_others(t_map *map)
+int check_others(t_game *map)
 {
 	int i;
 	int j;
@@ -45,7 +45,7 @@ int check_others(t_map *map)
 	return (SUCCESS);
 }
 
-int check_walls(t_map *map)
+int check_walls(t_game *map)
 {	
 	
 	if (check_first_bottom(map) == ERROR)

@@ -26,7 +26,7 @@ int count_lines(char *path)
 	return (i);
 }
 
-void bounce_map(t_map *map, char *path)
+void bounce_map(t_game *map, char *path)
 {
 	int i;
 	char *line;

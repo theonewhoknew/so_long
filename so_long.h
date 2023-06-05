@@ -8,33 +8,20 @@
 # define ERROR -1
 # define SUCCESS 0
 
-typedef struct s_texture
-{
+typedef struct s_game
+{	
+	void 	*mlx_ptr;
+	void 	*win_ptr;
+	void	*img;
+	char     *addr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+	char **map;
+	char **visited;
 	char	*relative_path;
 	int		width;
 	int		height;
-}					t_texture;
-
-typedef struct	s_img
-{
-	void		*img;
-	char      	*addr;
-	int       	bits_per_pixel;
-	int       	line_length;
-	int       	endian;
-}  					 t_img;
-
-typedef struct s_data
-{
-	void *mlx_ptr;
-	void *win_ptr;
-	t_img *img;
-}				t_data;
-
-typedef struct s_map
-{	
-	char **map;
-	char **visited;
 	int col;
 	int row;
 	int	exit;
@@ -44,21 +31,22 @@ typedef struct s_map
 	int position;
 	int row_pos;
 	int col_pos;
-}				t_map;
+}				t_game;
 
-void bounce_map(t_map *map, char *path);
-void fill_struct(t_map *map, char *path);
-void initialize_struct(t_map *map);
-void get_row_col(t_map *map);
-void get_coins(t_map *map);
-void get_exit(t_map *map);
-void get_position(t_map *map);
+
+void bounce_map(t_game *map, char *path);
+void fill_struct(t_game *map, char *path);
+void initialize_struct(t_game *map);
+void get_row_col(t_game *map);
+void get_coins(t_game *map);
+void get_exit(t_game *map);
+void get_position(t_game *map);
 int check_extension(char *path);
-int check_map(int argc, char *path,  t_map *map);
-int check_walls(t_map *map);
-void get_pos_coord(t_map *map);
-int check_path(t_map *map);
-void game(t_map *map);
-void render_map(t_data *data, t_img *img, t_map *map);
+int check_map(int argc, char *path,  t_game *map);
+int check_walls(t_game *map);
+void get_pos_coord(t_game *map);
+int check_path(t_game *map);
+void run_game(t_game *map);
+void render_map(t_game *game, int x, int y);
 
 #endif

@@ -14,7 +14,7 @@ int check_extension(char *path)
 		return (SUCCESS);
 }
 
-int check_chars(t_map *map, const char *charset)
+int check_chars(t_game *map, const char *charset)
 {
 	int i;
 	int j;
@@ -44,7 +44,7 @@ int check_chars(t_map *map, const char *charset)
 	return (SUCCESS);
 }
 
-int check_rectangle(t_map *map)
+int check_rectangle(t_game *map)
 {
 	int i;
 
@@ -61,7 +61,7 @@ int check_rectangle(t_map *map)
 		return (SUCCESS);
 }
 
-int check_map(int argc, char *path,  t_map *map)
+int check_map(int argc, char *path,  t_game *map)
 {	
 	if (argc != 2)
 		return (ERROR);
