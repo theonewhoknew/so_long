@@ -17,11 +17,10 @@ typedef struct s_texture
 
 typedef struct	s_img
 {
-	void		*pointer;
-	size_t		size;
-	char      	*pixels;
+	void		*img;
+	char      	*addr;
 	int       	bits_per_pixel;
-	int       	line_size;
+	int       	line_length;
 	int       	endian;
 }  					 t_img;
 
@@ -59,5 +58,7 @@ int check_map(int argc, char *path,  t_map *map);
 int check_walls(t_map *map);
 void get_pos_coord(t_map *map);
 int check_path(t_map *map);
+void game(t_map *map);
+void render_map(t_data *data, t_img *img, t_map *map);
 
 #endif

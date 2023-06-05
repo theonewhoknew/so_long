@@ -6,7 +6,7 @@
 /*   By: theonewhoknew <theonewhoknew@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/10 19:36:44 by abrabant          #+#    #+#             */
-/*   Updated: 2023/06/05 11:35:41 by theonewhokn      ###   ########.fr       */
+/*   Updated: 2023/06/05 13:34:51 by theonewhokn      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,5 @@ int	main(int argc, char **argv)
 		return (0);
 	}
 	ft_printf("no error\n");
-	
-		
-
+	game(&map);
 }
