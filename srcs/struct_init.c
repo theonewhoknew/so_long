@@ -20,5 +20,6 @@ void initialize_struct(t_game *map)
 	map->position = 0;
 	map->row_pos = 0;
 	map->col_pos = 0;
+	map->moves = 0;
 	map->map = NULL;
 }

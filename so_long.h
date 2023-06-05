@@ -7,6 +7,11 @@
 # define MLX_ERROR 1
 # define ERROR -1
 # define SUCCESS 0
+# define W 119
+# define A 97
+# define S 115
+# define D 100
+# define ESC 65307
 
 typedef struct s_game
 {	
@@ -22,15 +27,16 @@ typedef struct s_game
 	char	*relative_path;
 	int		width;
 	int		height;
-	int col;
-	int row;
-	int	exit;
-	int path_exit;
-	int coins;
-	int path_coins;
-	int position;
-	int row_pos;
-	int col_pos;
+	int 	col;
+	int 	row;
+	int		exit;
+	int 	path_exit;
+	int 	coins;
+	int 	path_coins;
+	int 	position;
+	int 	row_pos;
+	int 	col_pos;
+	int 	moves;
 }				t_game;
 
 
@@ -48,5 +54,10 @@ void get_pos_coord(t_game *map);
 int check_path(t_game *map);
 void run_game(t_game *map);
 void render_map(t_game *game, int x, int y);
+void put_tiles(t_game *game, int col_px, int row_px);
+void move_up(t_game *game);
+void move_down(t_game *game);
+void move_left(t_game *game);
+void move_right(t_game *game);
 
 #endif
