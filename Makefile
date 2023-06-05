@@ -27,7 +27,7 @@ make_libft:
 	@make -C $(LIBFT_DIR)
 
 clean:
-	@rm -f *.o
+	@rm -rf objs
 	@make clean -C $(LIBFT_DIR)
 
 fclean: clean

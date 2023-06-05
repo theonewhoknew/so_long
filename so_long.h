@@ -35,10 +35,13 @@ typedef struct s_data
 typedef struct s_map
 {	
 	char **map;
+	char **visited;
 	int col;
 	int row;
 	int	exit;
+	int path_exit;
 	int coins;
+	int path_coins;
 	int position;
 	int row_pos;
 	int col_pos;
