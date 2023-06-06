@@ -79,7 +79,6 @@ void move_left(t_game *game)
 
 void move_right(t_game *game)
 {	
-	ft_printf("%d %d", game->col_pos, game->row_pos);
 	if (game->map[game->row_pos][game->col_pos + 1] == '1')
 	{	
 		ft_printf("Blocked.\n");
@@ -92,7 +91,6 @@ void move_right(t_game *game)
 		put_tiles(game, (game->col_pos) * 50, (game->row_pos) * 50);
 		game->col_pos++;
 		game->moves++;
-		ft_printf("crash\n");
 		if (game->map[game->row_pos][game->col_pos] == 'C')
 		{
 			game->coins--;

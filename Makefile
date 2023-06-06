@@ -11,15 +11,17 @@ OBJS = $(patsubst srcs/%.c, objs/%.o, $(SRCS))
 
 OBJECTS_DIR = objs
 
-CFLAGS =  -I . 
+INC_DIR = inc
+
+CFLAGS =  -Wall -Werror -Wextra -I $(INC_DIR) 
 
 all: make_libft $(NAME) 
 
-$(NAME) : $(OBJS) so_long.h 
-	gcc $(CFLAGS)  -o $(NAME) $(OBJS) -L$(LIBFT_DIR) -lft -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
+$(NAME) : $(OBJS) $(INC_DIR)/so_long.h 
+	cc $(CFLAGS)  -o $(NAME) $(OBJS) -L$(LIBFT_DIR) -lft -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
 
-objs/%.o : srcs/%.c so_long.h libft/libft.h | $(OBJECTS_DIR)
-	gcc -c  $(CFLAGS) -I . -Imlx_linux -O3 $< -o $@
+objs/%.o : srcs/%.c $(INC_DIR)/so_long.h libft/libft.h | $(OBJECTS_DIR)
+	cc -c  $(CFLAGS) -I . -Imlx_linux -O3 $< -o $@
 
 $(OBJECTS_DIR) :
 	mkdir -p objs

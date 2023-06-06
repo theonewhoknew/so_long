@@ -31,6 +31,6 @@ int	main(int argc, char **argv)
 		ft_putstr_fd("Error\n", 2);
 		return (0);
 	}
-	ft_printf("no error\n");
 	run_game(&game);
+	return (0);
 }
