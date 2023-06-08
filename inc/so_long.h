@@ -11,6 +11,7 @@
 # define A 97
 # define S 115
 # define D 100
+# define R 114
 # define ESC 65307
 # define PIXEL 80
 # define UP	1
@@ -18,17 +19,29 @@
 # define DOWN	3
 # define LEFT	4
 
+typedef struct s_img
+{
+	void *wall;
+	void *tile;
+	void *coin;
+	void *door;
+	void *player;
+	void *player_at_door;
+	void *player_at_open_door;
+}				t_img;
+
 typedef struct s_game
 {	
 	void 	*mlx_ptr;
 	void 	*win_ptr;
-	void	*img;
+	t_img	*img;
 	char     *addr;
 	int		bits_per_pixel;
 	int		line_length;
 	int		endian;
 	char **map;
 	char **visited;
+	char *path;
 	char	*relative_path;
 	int		width;
 	int		height;
@@ -42,6 +55,7 @@ typedef struct s_game
 	int 	row_pos;
 	int 	col_pos;
 	int 	moves;
+	int		victory;
 }				t_game;
 
 
@@ -68,5 +82,8 @@ void move_to_door(t_game *game, int col_pos, int row_pos);
 void move_to_open_door(t_game *game, int col_pos, int row_pos);
 void put_door(t_game *game, int col_pos, int row_pos);
 void find_coin(t_game *game);
+void reset(t_game *game);
+void free_struct(t_game *game);
+void init_img(t_game *game);
 
 #endif

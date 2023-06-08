@@ -5,7 +5,7 @@ LIBFT_DIR = libft
 LIBFT =  $(LIBFT_DIR)/libft.a
 	
 SRCS = $(addprefix srcs/, main.c bounce_map.c struct_init.c get_things.c check_map.c check_walls.c check_path.c render_map.c \
-		game.c move.c move_aux.c)
+		game.c move.c move_aux.c reset.c free_struct.c init_img.c)
 
 OBJS = $(patsubst srcs/%.c, objs/%.o, $(SRCS))
 
@@ -13,7 +13,7 @@ OBJECTS_DIR = objs
 
 INC_DIR = inc
 
-CFLAGS =  -Wall -Werror -Wextra -I $(INC_DIR) 
+CFLAGS =  -Wall -Werror -Wextra -g -I $(INC_DIR) 
 
 all: make_libft $(NAME) 
 

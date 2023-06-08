@@ -1,32 +1,29 @@
 #include "libft/libft.h"
 #include "so_long.h"
 #include <mlx.h>
+#include <stdlib.h>
 
 void put_walls(t_game *game, int col_px, int row_px)
 {	
-	game->img = mlx_xpm_file_to_image(game->mlx_ptr, "textures/wall.xpm", &(game->width), &(game->height));
-	mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->img, col_px, row_px);
+	mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->img->wall, col_px, row_px);
 }
 
 void put_tiles(t_game *game, int col_px, int row_px)
 {
-	game->img = mlx_xpm_file_to_image(game->mlx_ptr, "textures/tile.xpm", &(game->width), &(game->height));
-	mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->img, col_px, row_px);
+	mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->img->tile, col_px, row_px);
 }
 
 void put_coins(t_game *game, int col_px, int row_px)
 {
-	game->img = mlx_xpm_file_to_image(game->mlx_ptr, "textures/coin.xpm", &(game->width), &(game->height));
-	mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->img, col_px, row_px);;
+	mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->img->coin, col_px, row_px);
 }
 
 void put_player_or_exit(t_game *game, int col_px, int row_px, char c)
 {	
 	if (c == 'P')
-		game->img = mlx_xpm_file_to_image(game->mlx_ptr, "textures/character.xpm", &(game->width), &(game->height));
-	else
-		game->img = mlx_xpm_file_to_image(game->mlx_ptr, "textures/door.xpm", &(game->width), &(game->height));
-	mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->img, col_px, row_px);
+		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->img->player, col_px, row_px);
+	else if (c == 'E')
+		mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->img->door, col_px, row_px);
 }
 
 void render_map(t_game *game, int x, int y)
@@ -36,6 +33,7 @@ void render_map(t_game *game, int x, int y)
 
 	col_px = 0;
 	row_px = 0;
+	init_img(game);
 	while (y < game->row)
 	{	
 		while (x < game->col)

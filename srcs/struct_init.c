@@ -9,6 +9,7 @@ void fill_struct(t_game *map, char *path)
 	get_coins(map);
 	get_exit(map);
 	get_position(map);
+	map->path = path;
 }
 
 void initialize_struct(t_game *map)
@@ -22,4 +23,5 @@ void initialize_struct(t_game *map)
 	map->col_pos = 0;
 	map->moves = 0;
 	map->map = NULL;
+	map->victory = 0;
 }
