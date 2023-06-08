@@ -48,12 +48,12 @@ void render_map(t_game *game, int x, int y)
 				put_coins(game, col_px, row_px);
 			else 
 				put_player_or_exit(game, col_px, row_px, game->map[y][x]);
-			col_px += 50;
+			col_px += 80;
 			x++;
 		}
 		col_px = 0;
 		x = 0;
-		row_px += 50;
+		row_px += 80;
 		y++;
 	}
 }

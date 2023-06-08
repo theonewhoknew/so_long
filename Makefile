@@ -5,7 +5,7 @@ LIBFT_DIR = libft
 LIBFT =  $(LIBFT_DIR)/libft.a
 	
 SRCS = $(addprefix srcs/, main.c bounce_map.c struct_init.c get_things.c check_map.c check_walls.c check_path.c render_map.c \
-		game.c move.c)
+		game.c move.c move_aux.c)
 
 OBJS = $(patsubst srcs/%.c, objs/%.o, $(SRCS))
 

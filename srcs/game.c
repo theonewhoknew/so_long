@@ -27,7 +27,7 @@ int	key_press(int keycode, t_game *game)
 void run_game(t_game *game)
 {
 	game->mlx_ptr = mlx_init();
-	game->win_ptr = mlx_new_window(game->mlx_ptr, 50 * game->col, 50 * game->row, "game");
+	game->win_ptr = mlx_new_window(game->mlx_ptr, 80 * game->col, 80 * game->row, "game");
 	render_map(game, 0, 0);
 	mlx_loop_hook(game->mlx_ptr, &handle_no_event, game);
 	mlx_hook(game->win_ptr, 2, 1L<<0, &key_press, game);

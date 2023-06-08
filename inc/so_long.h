@@ -12,6 +12,11 @@
 # define S 115
 # define D 100
 # define ESC 65307
+# define PIXEL 80
+# define UP	1
+# define RIGHT	2
+# define DOWN	3
+# define LEFT	4
 
 typedef struct s_game
 {	
@@ -59,5 +64,9 @@ void move_up(t_game *game);
 void move_down(t_game *game);
 void move_left(t_game *game);
 void move_right(t_game *game);
+void move_to_door(t_game *game, int col_pos, int row_pos);
+void move_to_open_door(t_game *game, int col_pos, int row_pos);
+void put_door(t_game *game, int col_pos, int row_pos);
+void find_coin(t_game *game);
 
 #endif
